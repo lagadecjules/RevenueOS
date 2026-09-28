@@ -1,0 +1,46 @@
+services:
+  - type: web
+    name: revenueos-integrations
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: APP_BASE_URL
+        sync: false # à remplir après le premier déploiement, avec l'URL donnée par Render
+      - key: TOKEN_ENCRYPTION_KEY
+        generateValue: true # Render génère une vraie valeur aléatoire tout seul
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: MICROSOFT_CLIENT_ID
+        sync: false
+      - key: MICROSOFT_CLIENT_SECRET
+        sync: false
+      - key: MICROSOFT_TENANT
+        value: common
+      - key: HUBSPOT_CLIENT_ID
+        sync: false
+      - key: HUBSPOT_CLIENT_SECRET
+        sync: false
+      - key: SALESFORCE_CLIENT_ID
+        sync: false
+      - key: SALESFORCE_CLIENT_SECRET
+        sync: false
+      - key: SALESFORCE_LOGIN_URL
+        value: https://login.salesforce.com
+      - key: PIPEDRIVE_CLIENT_ID
+        sync: false
+      - key: PIPEDRIVE_CLIENT_SECRET
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-4-6
+      - key: ORG_SENDER_NAME
+        value: "L'équipe commerciale"
+      - key: ALLOW_REAL_EMAIL_SEND
+        value: "false"
